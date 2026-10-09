@@ -1159,4 +1159,8 @@ syntax: db.collection.replaceOne({filter}, {newDocument}, {option})
 db.staff.replaceOne({sno: 115},{ sno: 116,sname: "mohit",course: "bca" ,experience: 8})
 
 
+---------------------------------------------------
+---------------------------------------------------
+
+
 
