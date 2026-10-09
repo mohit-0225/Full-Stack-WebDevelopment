@@ -1,0 +1,1162 @@
+SQL terms       mongodb terms
+--------------------------------
+databaes        databeses
+table          collection
+entity/row      document
+column          field/key
+join           embedded document
+
+primary key    default key (_id) is provided by MongoDB
+
+----------------------------------------------------------------
+
+==============================================
+create databes and execute queries in MongoDB
+==============================================
+
+db.createCollection("student")  // create a collection
+
+show collections  // show all collections
+
+show dbs // show all databases
+
+db.student.find() // find all documents in the student collection
+
+===========================================
+basic crud operations in MongoDB
+===========================================
+
+------------------------------------------------
+1. Create (Insert) a document in a collection
+------------------------------------------------
+
+syntax: db.collection.insertOne(document) // insert a single document into a collection
+
+syntax: db.collection.insertMany([document1, document2, ...]) // insert multiple documents into a collection
+
+syntax: db.collection.insert(document) // we can use this command to insert single or multiple documents into a collection
+
+--------------------------
+   insertOne example:
+--------------------------
+
+db.student.insertOne({ sno:11,sname:"John",course:"MCA",fees:37000})  
+db.student.insertOne({ sno:12,sname:"mohn",course:"msc it",fees:34000})  
+db.student.insertOne({ sno:13,sname:"rohn",course:"msc ict",fees:37000})  
+db.student.insertOne({ sno:14,sname:"mohit",course:"msc",fees:38000})  
+db.student.insertOne({ sno:15,sname:"mihir",course:"bca",fees:34000})  
+db.student.insertOne({ sno:16,sname:"rohan",course:"bcom",fees:39000})  
+
+
+
+collage> db.student.find()
+[
+  {
+    _id: ObjectId('6ab2a8513029d9d8206fde48'),
+    sno: 11,
+    sname: 'John',
+    course: 'MCA',
+    fees: 37000
+  },
+  {
+    _id: ObjectId('6ab2a87d3029d9d8206fde49'),
+    sno: 12,
+    sname: 'mohn',
+    course: 'msc it',
+    fees: 34000
+  },
+  {
+    _id: ObjectId('6ab2a9733029d9d8206fde4a'),
+    sno: 13,
+    sname: 'rohn',
+    course: 'msc ict',
+    fees: 37000
+  },
+  {
+    _id: ObjectId('6ab2a9733029d9d8206fde4b'),
+    sno: 14,
+    sname: 'mohit',
+    course: 'msc',
+    fees: 38000
+  },
+  {
+    _id: ObjectId('6ab2a9733029d9d8206fde4c'),
+    sno: 15,
+    sname: 'mihir',
+    course: 'bca',
+    fees: 34000
+  },
+  {
+    _id: ObjectId('6ab2a9733029d9d8206fde4d'),
+    sno: 16,
+    sname: 'rohan',
+    course: 'bcom',
+    fees: 39000
+  }
+]
+
+--------------------------
+   insertMany example:
+--------------------------
+
+db.staff.insertMany([
+{ sno:111,sname:"tanmmy",course:"python",experience:3},
+{ sno:112,sname:"rohit",course:"java",experience:6},
+{ sno:113,sname:"mannan",course:"mongodb",experience:6},
+{ sno:114,sname:"jeel",course:"dsa",experience:5},
+{ sno:115,sname:"raj",course:"bca",experience:8},
+]);
+
+collage> db.staff.find();
+[
+  {
+    _id: ObjectId('6ab2abff3029d9d8206fde4e'),
+    sno: 111,
+    sname: 'tanmmy',
+    course: 'python',
+    experience: 3
+  },
+  {
+    _id: ObjectId('6ab2abff3029d9d8206fde4f'),
+    sno: 112,
+    sname: 'rohit',
+    course: 'java',
+    experience: 6
+  },
+  {
+    _id: ObjectId('6ab2abff3029d9d8206fde50'),
+    sno: 113,
+    sname: 'mannan',
+    course: 'mongodb',
+    experience: 6
+  },
+  {
+    _id: ObjectId('6ab2abff3029d9d8206fde51'),
+    sno: 114,
+    sname: 'jeel',
+    course: 'dsa',
+    experience: 5
+  },
+  {
+    _id: ObjectId('6ab2abff3029d9d8206fde52'),
+    sno: 115,
+    sname: 'raj',
+    course: 'bca',
+    experience: 8
+  }
+]
+
+--------------------------
+    * simple command 
+--------------------------
+
+1. db.staff.find.skip(2);// skip first 2 documents and display remaining documents
+
+collage> db.staff.find().skip(2);
+[
+  {
+    _id: ObjectId('6ab2abff3029d9d8206fde50'),
+    sno: 113,
+    sname: 'mannan',
+    course: 'mongodb',
+    experience: 6
+  },
+  {
+    _id: ObjectId('6ab2abff3029d9d8206fde51'),
+    sno: 114,
+    sname: 'jeel',
+    course: 'dsa',
+    experience: 5
+  },
+  {
+    _id: ObjectId('6ab2abff3029d9d8206fde52'),
+    sno: 115,
+    sname: 'raj',
+    course: 'bca',
+    experience: 8
+  }
+]
+
+2. db.staff.find().limit(2); // display only first 2 documents
+
+[
+  {
+    _id: ObjectId('6ab2abff3029d9d8206fde4e'),
+    sno: 111,
+    sname: 'tanmmy',
+    course: 'python',
+    experience: 3
+  },
+  {
+    _id: ObjectId('6ab2abff3029d9d8206fde4f'),
+    sno: 112,
+    sname: 'rohit',
+    course: 'java',
+    experience: 6
+  }
+]
+
+3. db.staff.find().sort("_id");// sort documents in ascending order based on _id field
+
+[
+  {
+    _id: ObjectId('6ab2abff3029d9d8206fde4e'),
+    sno: 111,
+    sname: 'tanmmy',
+    course: 'python',
+    experience: 3
+  },
+  {
+    _id: ObjectId('6ab2abff3029d9d8206fde4f'),
+    sno: 112,
+    sname: 'rohit',
+    course: 'java',
+    experience: 6
+  },
+  {
+    _id: ObjectId('6ab2abff3029d9d8206fde50'),
+    sno: 113,
+    sname: 'mannan',
+    course: 'mongodb',
+    experience: 6
+  },
+  {
+    _id: ObjectId('6ab2abff3029d9d8206fde51'),
+    sno: 114,
+    sname: 'jeel',
+    course: 'dsa',
+    experience: 5
+  },
+  {
+    _id: ObjectId('6ab2abff3029d9d8206fde52'),
+    sno: 115,
+    sname: 'raj',
+    course: 'bca',
+    experience: 8
+  }
+]
+
+4. db.staff.find().sort({_id:-1}); // sort documents in descending order based on _id field
+
+[
+  {
+    _id: ObjectId('6ab2abff3029d9d8206fde52'),
+    sno: 115,
+    sname: 'raj',
+    course: 'bca',
+    experience: 8
+  },
+  {
+    _id: ObjectId('6ab2abff3029d9d8206fde51'),
+    sno: 114,
+    sname: 'jeel',
+    course: 'dsa',
+    experience: 5
+  },
+  {
+    _id: ObjectId('6ab2abff3029d9d8206fde50'),
+    sno: 113,
+    sname: 'mannan',
+    course: 'mongodb',
+    experience: 6
+  },
+  {
+    _id: ObjectId('6ab2abff3029d9d8206fde4f'),
+    sno: 112,
+    sname: 'rohit',
+    course: 'java',
+    experience: 6
+  },
+  {
+    _id: ObjectId('6ab2abff3029d9d8206fde4e'),
+    sno: 111,
+    sname: 'tanmmy',
+    course: 'python',
+    experience: 3
+  }
+]
+
+5. db.staff.find().count(); // count total number of documents in the collection
+    
+
+-------------
+  object id
+-------------
+
+-> object id is like primary key in sql.
+
+ exm: 6ab2abff3029d9d8206fde4e 
+
+-> this is hold 12 bytes of data and it is unique for each document in the collection
+
+ 12byte == 24 charactes
+
+ 4bytes == timestamp
+ 
+ 5bytes == random value
+ in this 5bytes,
+    next 3bytes == machine identifier
+    next 2bytes == process id
+
+ 3bytes == rendom incrimental value.
+
+===============================================
+  commparision query in MongoDB
+===============================================
+
+$eq =
+$ne !=
+$gt >
+$gte >=
+$lt <
+$lte <=
+
+$in,$nin
+
+
+syntax: db.collection.find({field:{$eq:value}})
+
+-> example: db.student.find({fees:{$eq:34000}})  // find all documents where fees is equal to 34000
+* short cut for $eq is db.student.find({fees:34000})
+
+[
+  {
+    _id: ObjectId('6ab2a87d3029d9d8206fde49'),
+    sno: 12,
+    sname: 'mohn',
+    course: 'msc it',
+    fees: 34000
+  },
+  {
+    _id: ObjectId('6ab2a9733029d9d8206fde4c'),
+    sno: 15,
+    sname: 'mihir',
+    course: 'bca',
+    fees: 34000
+  }
+]
+
+-> example: db.student.find({fees:{$ne:34000}})
+[
+  {
+    _id: ObjectId('6ab2a8513029d9d8206fde48'),
+    sno: 11,
+    sname: 'John',
+    course: 'MCA',
+    fees: 37000
+  },
+  {
+    _id: ObjectId('6ab2a9733029d9d8206fde4a'),
+    sno: 13,
+    sname: 'rohn',
+    course: 'msc ict',
+    fees: 37000
+  },
+  {
+    _id: ObjectId('6ab2a9733029d9d8206fde4b'),
+    sno: 14,
+    sname: 'mohit',
+    course: 'msc',
+    fees: 38000
+  },
+  {
+    _id: ObjectId('6ab2a9733029d9d8206fde4d'),
+    sno: 16,
+    sname: 'rohan',
+    course: 'bcom',
+    fees: 39000
+  }
+]
+
+-> example: db.student.find({fees:{$gt:34000}}) 
+[
+  {
+    _id: ObjectId('6ab2a8513029d9d8206fde48'),
+    sno: 11,
+    sname: 'John',
+    course: 'MCA',
+    fees: 37000
+  },
+  {
+    _id: ObjectId('6ab2a9733029d9d8206fde4a'),
+    sno: 13,
+    sname: 'rohn',
+    course: 'msc ict',
+    fees: 37000
+  },
+  {
+    _id: ObjectId('6ab2a9733029d9d8206fde4b'),
+    sno: 14,
+    sname: 'mohit',
+    course: 'msc',
+    fees: 38000
+  },
+  {
+    _id: ObjectId('6ab2a9733029d9d8206fde4d'),
+    sno: 16,
+    sname: 'rohan',
+    course: 'bcom',
+    fees: 39000
+  }
+]
+
+-> example:db.student.find({fees:{$gte:34000}}) 
+[
+  {
+    _id: ObjectId('6ab2a8513029d9d8206fde48'),
+    sno: 11,
+    sname: 'John',
+    course: 'MCA',
+    fees: 37000
+  },
+  {
+    _id: ObjectId('6ab2a87d3029d9d8206fde49'),
+    sno: 12,
+    sname: 'mohn',
+    course: 'msc it',
+    fees: 34000
+  },
+  {
+    _id: ObjectId('6ab2a9733029d9d8206fde4a'),
+    sno: 13,
+    sname: 'rohn',
+    course: 'msc ict',
+    fees: 37000
+  },
+  {
+    _id: ObjectId('6ab2a9733029d9d8206fde4b'),
+    sno: 14,
+    sname: 'mohit',
+    course: 'msc',
+    fees: 38000
+  },
+  {
+    _id: ObjectId('6ab2a9733029d9d8206fde4c'),
+    sno: 15,
+    sname: 'mihir',
+    course: 'bca',
+    fees: 34000
+  },
+  {
+    _id: ObjectId('6ab2a9733029d9d8206fde4d'),
+    sno: 16,
+    sname: 'rohan',
+    course: 'bcom',
+    fees: 39000
+  }
+]
+
+-> example: db.student.find({fees:{$lt:35000}}) 
+[
+  {
+    _id: ObjectId('6ab2a87d3029d9d8206fde49'),
+    sno: 12,
+    sname: 'mohn',
+    course: 'msc it',
+    fees: 34000
+  },
+  {
+    _id: ObjectId('6ab2a9733029d9d8206fde4c'),
+    sno: 15,
+    sname: 'mihir',
+    course: 'bca',
+    fees: 34000
+  }
+]
+
+-> example:db.student.find({fees:{$lte:37000}}) 
+
+[
+  {
+    _id: ObjectId('6ab2a8513029d9d8206fde48'),
+    sno: 11,
+    sname: 'John',
+    course: 'MCA',
+    fees: 37000
+  },
+  {
+    _id: ObjectId('6ab2a87d3029d9d8206fde49'),
+    sno: 12,
+    sname: 'mohn',
+    course: 'msc it',
+    fees: 34000
+  },
+  {
+    _id: ObjectId('6ab2a9733029d9d8206fde4a'),
+    sno: 13,
+    sname: 'rohn',
+    course: 'msc ict',
+    fees: 37000
+  },
+  {
+    _id: ObjectId('6ab2a9733029d9d8206fde4c'),
+    sno: 15,
+    sname: 'mihir',
+    course: 'bca',
+    fees: 34000
+  }
+]
+
+=================================
+  books.json (embedded document)
+=================================
+
+db.books.find({no_of_reviews: 3})
+
+[
+  {
+    _id: ObjectId('6ab3fdadfc6c1a7c29d0d5dc'),
+    title: 'Devops in simple way',
+    isbn: 6677,
+    downloadable: false,
+    no_of_reviews: 3,
+    tags: [ 'jenkins', 'git', 'cicd' ],
+    languages: [ 'english', 'hindi', 'gujarati' ],
+    author: {
+      name: 'Dhoni Chandra',
+      callname: 'Dhoni',
+      profile: { exp: 4, courses: 4, books: 4 }
+    }
+  },
+  {
+    _id: ObjectId('6ab3fdadfc6c1a7c29d0d5de'),
+    title: 'Oracle in simple way',
+    isbn: 6677,
+    downloadable: true,
+    no_of_reviews: 3,
+    tags: [ 'database', 'sql', 'relational' ],
+    languages: [ 'english', 'hindi', 'gujarati' ],
+    author: {
+      name: 'Virat Kohli',
+      callname: 'kohli',
+      profile: { exp: 2, courses: 2, books: 2 }
+    }
+  }
+]
+
+
+db.books.find({"author.profile.exp":2})
+[
+  {
+    _id: ObjectId('6ab3fdadfc6c1a7c29d0d5de'),
+    title: 'Oracle in simple way',
+    isbn: 6677,
+    downloadable: true,
+    no_of_reviews: 3,
+    tags: [ 'database', 'sql', 'relational' ],
+    languages: [ 'english', 'hindi', 'gujarati' ],
+    author: {
+      name: 'Virat Kohli',
+      callname: 'kohli',
+      profile: { exp: 2, courses: 2, books: 2 }
+    }
+  }
+]
+
+db.books.find({"author.profile.exp":{$gt:3}})
+[
+  {
+    _id: ObjectId('6ab3fdadfc6c1a7c29d0d5d9'),
+    title: 'Linux in simple way',
+    isbn: 6677,
+    downloadable: false,
+    no_of_reviews: 1,
+    tags: [ 'os', 'freeware', 'shell programming' ],
+    languages: [ 'english', 'hindi', 'gujarati' ],
+    author: {
+      name: 'Shiva Ramachandran',
+      callname: 'Shiv',
+      profile: { exp: 8, courses: 3, books: 2 }
+    }
+  },
+  {
+    _id: ObjectId('6ab3fdadfc6c1a7c29d0d5db'),
+    title: 'Python in simple way',
+    isbn: 1234,
+    downloadable: false,
+    no_of_reviews: 5,
+    tags: [ 'language', 'freeware', 'programming' ],
+    languages: [ 'english', 'hindi', 'gujarati' ],
+    author: {
+      name: 'Daniel IA Cohen',
+      callname: 'Dan',
+      profile: { exp: 8, courses: 7, books: 6 }
+    }
+  },
+  {
+    _id: ObjectId('6ab3fdadfc6c1a7c29d0d5dc'),
+    title: 'Devops in simple way',
+    isbn: 6677,
+    downloadable: false,
+    no_of_reviews: 3,
+    tags: [ 'jenkins', 'git', 'cicd' ],
+    languages: [ 'english', 'hindi', 'gujarati' ],
+    author: {
+      name: 'Dhoni Chandra',
+      callname: 'Dhoni',
+      profile: { exp: 4, courses: 4, books: 4 }
+    }
+  },
+  {
+    _id: ObjectId('6ab3fdadfc6c1a7c29d0d5dd'),
+    title: 'MongoDB in simple way',
+    isbn: 6677,
+    downloadable: true,
+    no_of_reviews: 4,
+    tags: [ 'database', 'cloud', 'nosql' ],
+    languages: [ 'english', 'hindi', 'gujarati' ],
+    author: {
+      name: 'Sachin Tendulkar',
+      callname: 'Sachin',
+      profile: { exp: 6, courses: 7, books: 8 }
+    }
+  },
+  {
+    _id: ObjectId('6ab3fdadfc6c1a7c29d0d5df'),
+    title: 'Shell Scripting in simple way',
+    isbn: 9988,
+    downloadable: true,
+    no_of_reviews: 1,
+    tags: [ 'programming' ],
+    languages: [ 'english', 'hindi', 'tamil' ],
+    author: {
+      name: 'Rama Ramachandran',
+      callname: 'Rama',
+      profile: { exp: 8, courses: 3, books: 2 }
+    }
+  }
+]
+
+
+db.books.find({no_of_reviews:{$in:[1,4,5]}})
+
+[
+  {
+    _id: ObjectId('6ab3fdadfc6c1a7c29d0d5d9'),
+    title: 'Linux in simple way',
+    isbn: 6677,
+    downloadable: false,
+    no_of_reviews: 1,
+    tags: [ 'os', 'freeware', 'shell programming' ],
+    languages: [ 'english', 'hindi', 'gujarati' ],
+    author: {
+      name: 'Shiva Ramachandran',
+      callname: 'Shiv',
+      profile: { exp: 8, courses: 3, books: 2 }
+    }
+  },
+  {
+    _id: ObjectId('6ab3fdadfc6c1a7c29d0d5db'),
+    title: 'Python in simple way',
+    isbn: 1234,
+    downloadable: false,
+    no_of_reviews: 5,
+    tags: [ 'language', 'freeware', 'programming' ],
+    languages: [ 'english', 'hindi', 'gujarati' ],
+    author: {
+      name: 'Daniel IA Cohen',
+      callname: 'Dan',
+      profile: { exp: 8, courses: 7, books: 6 }
+    }
+  },
+  {
+    _id: ObjectId('6ab3fdadfc6c1a7c29d0d5dd'),
+    title: 'MongoDB in simple way',
+    isbn: 6677,
+    downloadable: true,
+    no_of_reviews: 4,
+    tags: [ 'database', 'cloud', 'nosql' ],
+    languages: [ 'english', 'hindi', 'gujarati' ],
+    author: {
+      name: 'Sachin Tendulkar',
+      callname: 'Sachin',
+      profile: { exp: 6, courses: 7, books: 8 }
+    }
+  },
+  {
+    _id: ObjectId('6ab3fdadfc6c1a7c29d0d5df'),
+    title: 'Shell Scripting in simple way',
+    isbn: 9988,
+    downloadable: true,
+    no_of_reviews: 1,
+    tags: [ 'programming' ],
+    languages: [ 'english', 'hindi', 'tamil' ],
+    author: {
+      name: 'Rama Ramachandran',
+      callname: 'Rama',
+      profile: { exp: 8, courses: 3, books: 2 }
+    }
+  }
+]
+
+db.books.find({no_of_reviews:{$nin:[1,4,5]}})
+[
+  {
+    _id: ObjectId('6ab3fdadfc6c1a7c29d0d5da'),
+    title: 'Java in simple way',
+    isbn: 1122,
+    downloadable: true,
+    no_of_reviews: 2,
+    tags: [ 'language', 'freeware', 'programming' ],
+    languages: [ 'english', 'hindi', 'gujarati' ],
+    author: {
+      name: 'Karhik Ramachandran',
+      callname: 'Karthik',
+      profile: { exp: 1, courses: 2, books: 3 }
+    }
+  },
+  {
+    _id: ObjectId('6ab3fdadfc6c1a7c29d0d5dc'),
+    title: 'Devops in simple way',
+    isbn: 6677,
+    downloadable: false,
+    no_of_reviews: 3,
+    tags: [ 'jenkins', 'git', 'cicd' ],
+    languages: [ 'english', 'hindi', 'gujarati' ],
+    author: {
+      name: 'Dhoni Chandra',
+      callname: 'Dhoni',
+      profile: { exp: 4, courses: 4, books: 4 }
+    }
+  },
+  {
+    _id: ObjectId('6ab3fdadfc6c1a7c29d0d5de'),
+    title: 'Oracle in simple way',
+    isbn: 6677,
+    downloadable: true,
+    no_of_reviews: 3,
+    tags: [ 'database', 'sql', 'relational' ],
+    languages: [ 'english', 'hindi', 'gujarati' ],
+    author: {
+      name: 'Virat Kohli',
+      callname: 'kohli',
+      profile: { exp: 2, courses: 2, books: 2 }
+    }
+  }
+]
+
+
+============================================
+  logical operators in MongoDB
+============================================
+
+syntax: db.collection.find({<$logical_operators>:[{expression1},{expression2},...]})
+
+-> $or - performs  logical OR no array of two or more atlist one expression must be true to return the document 
+
+example: db.books.find({$or:[{no_of_reviews:{$gt:3}},{tags:"programming"}]}) 
+
+        [
+  {
+    _id: ObjectId('6ab3fdadfc6c1a7c29d0d5da'),
+    title: 'Java in simple way',
+    isbn: 1122,
+    downloadable: true,
+    no_of_reviews: 2,
+    tags: [ 'language', 'freeware', 'programming' ],
+    languages: [ 'english', 'hindi', 'gujarati' ],
+    author: {
+      name: 'Karhik Ramachandran',
+      callname: 'Karthik',
+      profile: { exp: 1, courses: 2, books: 3 }
+    }
+  },
+  {
+    _id: ObjectId('6ab3fdadfc6c1a7c29d0d5db'),
+    title: 'Python in simple way',
+    isbn: 1234,
+    downloadable: false,
+    no_of_reviews: 5,
+    tags: [ 'language', 'freeware', 'programming' ],
+    languages: [ 'english', 'hindi', 'gujarati' ],
+    author: {
+      name: 'Daniel IA Cohen',
+      callname: 'Dan',
+      profile: { exp: 8, courses: 7, books: 6 }
+    }
+  },
+  {
+    _id: ObjectId('6ab3fdadfc6c1a7c29d0d5dd'),
+    title: 'MongoDB in simple way',
+    isbn: 6677,
+    downloadable: true,
+    no_of_reviews: 4,
+    tags: [ 'database', 'cloud', 'nosql' ],
+    languages: [ 'english', 'hindi', 'gujarati' ],
+    author: {
+      name: 'Sachin Tendulkar',
+      callname: 'Sachin',
+      profile: { exp: 6, courses: 7, books: 8 }
+    }
+  },
+  {
+    _id: ObjectId('6ab3fdadfc6c1a7c29d0d5df'),
+    title: 'Shell Scripting in simple way',
+    isbn: 9988,
+    downloadable: true,
+    no_of_reviews: 1,
+    tags: [ 'programming' ],
+    languages: [ 'english', 'hindi', 'tamil' ],
+    author: {
+      name: 'Rama Ramachandran',
+      callname: 'Rama',
+      profile: { exp: 8, courses: 3, books: 2 }
+    }
+  }
+]
+ example 2: db.books.find({$or:[{no_of_reviews:{$lt:3}},{downloadable:true},{"author.profile.books":{$gte:3}}]}) 
+ 
+
+-> $and - performs logical AND operation, all expressions must be true to return the document
+
+  example:db.books.find({$and:[{no_of_review:{$gt:3}},{tags:"programming"}]})
+
+          [
+  {
+    _id: ObjectId('6ab3fdadfc6c1a7c29d0d5db'),
+    title: 'Python in simple way',
+    isbn: 1234,
+    downloadable: false,
+    no_of_reviews: 5,
+    tags: [ 'language', 'freeware', 'programming' ],
+    languages: [ 'english', 'hindi', 'gujarati' ],
+    author: {
+      name: 'Daniel IA Cohen',
+      callname: 'Dan',
+      profile: { exp: 8, courses: 7, books: 6 }
+    }
+  }
+]
+
+
+
+-> $nor - performs logical NOR operation, all expressions must be false to return the document
+
+example: db.books.find({$nor:[{no_of_reviews:{$gt:3}},{tags:"programming"}]})
+
+[
+  {
+    _id: ObjectId('6ab3fdadfc6c1a7c29d0d5d9'),
+    title: 'Linux in simple way',
+    isbn: 6677,
+    downloadable: false,
+    no_of_reviews: 1,
+    tags: [ 'os', 'freeware', 'shell programming' ],
+    languages: [ 'english', 'hindi', 'gujarati' ],
+    author: {
+      name: 'Shiva Ramachandran',
+      callname: 'Shiv',
+      profile: { exp: 8, courses: 3, books: 2 }
+    }
+  },
+  {
+    _id: ObjectId('6ab3fdadfc6c1a7c29d0d5dc'),
+    title: 'Devops in simple way',
+    isbn: 6677,
+    downloadable: false,
+    no_of_reviews: 3,
+    tags: [ 'jenkins', 'git', 'cicd' ],
+    languages: [ 'english', 'hindi', 'gujarati' ],
+    author: {
+      name: 'Dhoni Chandra',
+      callname: 'Dhoni',
+      profile: { exp: 4, courses: 4, books: 4 }
+    }
+  },
+  {
+    _id: ObjectId('6ab3fdadfc6c1a7c29d0d5de'),
+    title: 'Oracle in simple way',
+    isbn: 6677,
+    downloadable: true,
+    no_of_reviews: 3,
+    tags: [ 'database', 'sql', 'relational' ],
+    languages: [ 'english', 'hindi', 'gujarati' ],
+    author: {
+      name: 'Virat Kohli',
+      callname: 'kohli',
+      profile: { exp: 2, courses: 2, books: 2 }
+    }
+  }
+]
+
+
+$not - performs logical NOT operation, negates the expression and returns the document if the expression is false
+
+
+example: db.books.find({no_of_reviews:{$not:{$gt:3}}})
+
+[
+  {
+    _id: ObjectId('6ab3fdadfc6c1a7c29d0d5d9'),
+    title: 'Linux in simple way',
+    isbn: 6677,
+    downloadable: false,
+    no_of_reviews: 1,
+    tags: [ 'os', 'freeware', 'shell programming' ],
+    languages: [ 'english', 'hindi', 'gujarati' ],
+    author: {
+      name: 'Shiva Ramachandran',
+      callname: 'Shiv',
+      profile: { exp: 8, courses: 3, books: 2 }
+    }
+  },
+  {
+    _id: ObjectId('6ab3fdadfc6c1a7c29d0d5da'),
+    title: 'Java in simple way',
+    isbn: 1122,
+    downloadable: true,
+    no_of_reviews: 2,
+    tags: [ 'language', 'freeware', 'programming' ],
+    languages: [ 'english', 'hindi', 'gujarati' ],
+    author: {
+      name: 'Karhik Ramachandran',
+      callname: 'Karthik',
+      profile: { exp: 1, courses: 2, books: 3 }
+    }
+  },
+  {
+    _id: ObjectId('6ab3fdadfc6c1a7c29d0d5dc'),
+    title: 'Devops in simple way',
+    isbn: 6677,
+    downloadable: false,
+    no_of_reviews: 3,
+    tags: [ 'jenkins', 'git', 'cicd' ],
+    languages: [ 'english', 'hindi', 'gujarati' ],
+    author: {
+      name: 'Dhoni Chandra',
+      callname: 'Dhoni',
+      profile: { exp: 4, courses: 4, books: 4 }
+    }
+  },
+  {
+    _id: ObjectId('6ab3fdadfc6c1a7c29d0d5de'),
+    title: 'Oracle in simple way',
+    isbn: 6677,
+    downloadable: true,
+    no_of_reviews: 3,
+    tags: [ 'database', 'sql', 'relational' ],
+    languages: [ 'english', 'hindi', 'gujarati' ],
+    author: {
+      name: 'Virat Kohli',
+      callname: 'kohli',
+      profile: { exp: 2, courses: 2, books: 2 }
+    }
+  },
+  {
+    _id: ObjectId('6ab3fdadfc6c1a7c29d0d5df'),
+    title: 'Shell Scripting in simple way',
+    isbn: 9988,
+    downloadable: true,
+    no_of_reviews: 1,
+    tags: [ 'programming' ],
+    languages: [ 'english', 'hindi', 'tamil' ],
+    author: {
+      name: 'Rama Ramachandran',
+      callname: 'Rama',
+      profile: { exp: 8, courses: 3, books: 2 }
+    }
+  }
+]
+
+
+
+============================
+ delete document in MongoDB
+============================
+
+db.collection.deleteOne(); // delete a single document in the collection
+db.collection.deleteMany(); // delete multiple documents in the collection
+db.collection.deleteMany({}) // delete all documents in the collection
+
+db.student.deleteOne({fees:34000}) // delete a single document where fees is equal to 34000
+db.student.deleteMany({fees:37000}) // delete multiple documents where fees is equal to 37000
+ db.collection.deleteMany({}) // delete all documents in the collection
+
+ ==============================
+     drop  in MongoDB
+ ==============================
+
+ db.collection.drop() // drop a collection from the database
+
+ example: db.student.drop() // drop the student collection from the database
+
+ db.dropDatabase()// drop the current database from the server u have to be in that database to drop it.
+
+
+ **** drop database without  entering (use it) in database : mongosh <databasename> --eval db.dropDatabase() 
+
+
+=========================================
+        Datatypes in MongoDB
+=========================================
+
+ we write in jsonand after that it converts to bson types.
+
+ BSON TYPES         NUMBER        Alias
+ ---------------------------------------
+ double               1           double
+ string               2           string
+ object               3           object
+ binaryData           5           array
+ object_Id            7           binData
+ boolean              8           bool
+ date                 9           date
+ Null                 10          null
+ 32 bit               16          int
+ 64 bit               18          long
+ decimal128           19          decimal
+
+
+ -> db.temp.insertOne({contect:"9475683423"}) // insert data in string format
+ -> db.temp.insertOne({contect:9475683423}) // insert data as a number
+ -> db.temp.insertOne({contect:NumberLong(9475683423)}) // insert data as a 64-bit integer
+ -> db.temp.insertOne({contect:NumberInt(947568342387654)}) // insert data as a 32-bit integer
+
+
+ -> db.temp.find({contect:{$type:18}}) // use for find data using datatype alise
+
+ [
+  {
+    _id: ObjectId('6abbed27073d2fb17ca7ccd3'),
+    contect: Long('9475683423')
+  }
+]
+
+ -> db.temp.find({contect:{$type:"double"}}) // use for find data using datatype
+
+ [
+  {
+    _id: ObjectId('6abbed27073d2fb17ca7ccd1'),
+    contect: 9475683423
+  }
+]
+
+
+  ===============================
+  update document in MongoDB
+  ===============================
+  
+  update one
+  --------------
+
+  syntax: db.collection.updateOne({filter},{$set:{update}},{option})
+
+  example : db.staff.updateOne({sno: 115},{$set:{ sname:"ram"}})
+
+
+  ****if u want to add new fild in the document then use this command
+
+      db.staff.updateOne({sno: 116},{$set:{duration:"1 month"}}) -- it will add new fild in the document
+
+      {
+      _id: ObjectId('6ab2abff3029d9d8206fde52'),
+      sno: 116,
+      sname: 'mohit',
+      course: 'bca',
+      experience: 8,
+      duration: '1 month'
+    }
+
+  **** if u want to delete a fild in the document then use this command
+
+      db.staff.updateOne({sno: 116},{$unset:{duration:""}}) -- it will delete the fild from the document
+
+      {
+        _id: ObjectId('6ab2abff3029d9d8206fde52'),
+        sno: 116,
+        sname: 'mohit',
+        course: 'bca',
+        experience: 8
+      }
+
+
+  ****increment and decrement in MongoDB
+      ---------------------------------------
+
+      syntax: db.collection.updateOne({filter},{$inc:{fildname:value}},{option})
+
+      example:db.staff.updateOne({sno:116},{$inc:{experience:1}})
+
+  ****multiple fild increment and decrement in MongoDB
+      -------------------------------------------------
+
+      syntax: db.collection.updateOne({filter},{$inc:{fildname1:value1,fildname2:value2}},{option})
+
+      example:db.staff.updateOne({sno:114},{$mul:{experience:2}})
+
+  ****minimum and maximum in MongoDB
+      ---------------------------------------
+
+      -> minimum 
+
+      syntax: db.collection.updateOne({filter},{$min:{fildname:value}},{option})
+      // for use mimimum tha value must be greter then orignal value
+
+      example:db.staff.updateOne({course:"bca"},{$min:{experiemce:6}})
+      // for use mimimum tha value must be less then orignal value
+
+      -> maximum
+
+      syntax: db.collection.updateOne({filter},{$max:{fildname:value}},{option})
+
+      example:db.staff.updateOne({course:"bca"},{$max:{experiemce:10}})
+
+  --------------
+  update many
+  --------------
+
+  syntax: db.collection.updateMany({filter},{$set:{update}},{option})
+
+          *** hear filtwe is like condition in sql 
+
+  example: db.staff.updateMany({},{$set:{course:"mern"}}) -- without filter it will update all documents in the collection
+  
+          {
+            acknowledged: true,
+            insertedId: null,
+            matchedCount: 5,
+            modifiedCount: 5,
+           upsertedCount: 0
+          }
+
+example: db.staff.updateMany({sname:'raj'},{$set:{course:"marn"}}) -- with filter it will update only those documents which match the filter condition
+
+          {
+            acknowledged: true,
+            insertedId: null,
+            matchedCount: 1,
+            modifiedCount: 1,
+            upsertedCount: 0
+          }
+
+          {
+            _id: ObjectId('6ab2abff3029d9d8206fde52'),
+            sno: 115,
+            sname: 'raj',
+            course: 'marn',
+            experience: 8
+          }
+--- --------------------------------------------------------------------------------------------------------------------------------------------------
+    que: update more then one document in the collection using updateMany() method. 
+              want to update 2 documents s name is rohit and mannan and want to update their course name to marn in singal query.
+              ans:
+
+    ans: db.staff.updateMany({experience:{$gt:5}},{$set:{course:"mern"}}) -- it will update all documents where experience is greater than 5          
+
+
+    want to update 2 documents s name is rohit and mannan and want to update their course name to marn in singal query.
+    ans: db.staff.updateMany({sname: {$in: ["rohit", "mannan"]}}, {$set: {course: "marn"}})
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+----------------------------
+replace document in MongoDB
+----------------------------
+
+syntax: db.collection.replaceOne({filter}, {newDocument}, {option})
+
+db.staff.replaceOne({sno: 115},{ sno: 116,sname: "mohit",course: "bca" ,experience: 8})
+
+
+

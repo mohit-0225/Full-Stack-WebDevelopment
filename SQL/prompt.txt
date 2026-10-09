@@ -1,0 +1,79 @@
+Here’s a polished Lovable prompt you can paste directly:
+
+Prompt:
+
+Create a modern, elegant, and highly responsive landing page for a Unisex Salon using React as the front end. The design should feel premium, welcoming, and stylish, with a strong focus on beauty, grooming, and relaxation.
+
+Requirements:
+Build only the landing page for now.
+
+Use a modern UI with a clean layout, soft gradients, tasteful shadows, and premium typography.
+
+The website should be fully responsive for mobile, tablet, and desktop.
+
+Use a gender-neutral, unisex aesthetic that appeals to all customers.
+
+The overall look should feel luxurious, minimal, and contemporary.
+
+Sections to include:
+Hero section
+
+Bold headline
+
+Short tagline
+
+Primary CTA button like “Book Appointment”
+
+Secondary CTA like “View Services”
+
+Attractive salon-related visual or illustration
+
+About section
+
+Brief introduction about the salon
+
+Focus on style, care, comfort, and expert service
+
+Services section
+
+Display key salon services in clean cards
+
+Example services: Haircut, Beard Grooming, Hair Spa, Facial, Styling, Makeup, Massage
+
+Why choose us section
+
+Highlight professionalism, hygiene, skilled staff, premium products, and relaxing experience
+
+Testimonials section
+
+Add 2–3 customer reviews in a polished format
+
+Call to action section
+
+Encourage users to book an appointment
+
+Footer
+
+Include salon name, contact info, social links, and working hours
+
+Design direction:
+Use a luxury color palette such as black, white, beige, gold, or soft pastels
+
+Add subtle animations and hover effects
+
+Use modern iconography
+
+Keep spacing balanced and visually appealing
+
+Make the interface feel premium without being cluttered
+
+Extra notes:
+Use clean component structure in React
+
+Focus on conversion and aesthetic appeal
+
+The page should look like a high-end salon brand
+
+Prioritize usability and elegant visual storytelling
+
+If possible, also make the layout SEO-friendly and ready to expand into a full website later.

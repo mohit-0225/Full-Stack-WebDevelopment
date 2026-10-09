@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=mic"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,400,0,0&icon_names=add_a_photo"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=add_a_photo"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,400,0,0&icon_names=search"
+    />
+
+    <title>Google</title>
+    <style>
+      body {
+        background-color: rgb(17, 35, 72);
+      }
+      #logo p {
+        font-size: 130px;
+        color: rgb(52, 107, 216);
+        margin: 0;
+      }
+      #logo {
+        position: absolute;
+        top: 23%;
+        left: 36%;
+      }
+      #search {
+        height: 50px;
+        width: 800px;
+        border-radius: 50px;
+        background-color: aliceblue;
+        position: absolute;
+        top: 49%;
+        left: 23%;
+      }
+      #search input {
+        margin-top: 5px;
+        margin-left: 30px;
+        border: none;
+        background-color: aliceblue;
+        height: 40px;
+        width: 500px;
+      }
+      #pluse {
+        font-size: 23px;
+        border: none;
+        background-color: aliceblue;
+        position: relative;
+        top: 5px;
+        left: 20px;
+      }
+      #mic {
+        font-size: 25px;
+        border: none;
+        background-color: aliceblue;
+        position: relative;
+        top: 9px;
+        left: 20px;
+      }
+      #uplode {
+        font-size: 25px;
+        border: none;
+        background-color: aliceblue;
+        position: relative;
+        top: 8px;
+        left: 20px;
+      }
+      #AI {
+        font-size: 20px;
+        border: 1px solid black;
+        border-radius: 20px;
+        background-color: aliceblue;
+        position: relative;
+        top: 4px;
+        left: 20px;
+        padding: 7px;
+      }
+      a {
+        color: aliceblue;
+      }
+      #link {
+        position: absolute;
+        top: 20px; /* distance from top */
+        right: 30px; /* distance from right */
+      }
+
+      #link a {
+        margin-left: 20px; /* spacing between links */
+        text-decoration: none;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="link">
+      <a href="https://mail.google.com/mail/?tab=rm&ogbl">Gmail</a>
+      <a href="https://www.google.com/imghp?hl=en-GB&tab=ri&ogbl">Images</a>
+    </div>
+    <div id="logo">
+      <p>Google</p>
+    </div>
+    <div id="search">
+      <button id="pluse"><i class="fa fa-plus"></i></button>
+      <input id="input" type="search" placeholder="Ask Google" />
+      <button id="mic">
+        <span class="material-symbols-outlined"> mic </span>
+      </button>
+      <button id="uplode">
+        <span class="material-symbols-outlined"> add_a_photo </span>
+      </button>
+
+      <button id="AI"><i class="fa fa-search"> AI Mode</i></button>
+    </div>
+  </body>
+</html>

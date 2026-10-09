@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=more_vert"
+    />
+    <title>W3 school</title>
+    <style>
+      body {
+        background-color: aliceblue;
+      }
+      #navbar ul {
+        padding: 8px 7.5px;
+        margin: 0;
+        display: inline-block;
+        text-align: center;
+        color: white;
+      }
+      /* #nav ul {
+      padding: 8px 8px;
+      margin: 0;
+      display: inline-block; 
+      text-align: center; 
+      color: white;
+      
+    } */
+      #navbar li {
+        border: 1px solid #929292;
+        padding: 0px 10px;
+        cursor: pointer;
+        background-color: #313839;
+      }
+      #navbar ul:hover {
+        background-color: black;
+        color: white;
+      }
+
+      #img {
+        height: 40px;
+        width: 40px;
+        padding: 0px 6px;
+      }
+      #nav ul {
+        padding: 8px 8px;
+        margin: 0;
+        display: inline-block;
+        text-align: center;
+        /* color: white; */
+        color: black;
+        position: relative;
+        bottom: 10px;
+        text-align: center;
+        padding: 16px;
+        font-size: 18px;
+      }
+      #nav ul:hover {
+        background-color: #04aa6d;
+      }
+      #leftnav ul:hover {
+        background-color: #d8d8d8bf;
+        border-radius: 30px;
+      }
+      #search {
+        display: inline-block;
+        position: relative;
+        bottom: 10px;
+        padding-left: 10px;
+      }
+      #search input {
+        border-radius: 25px;
+        height: 38px;
+        border: 1px solid gray;
+      }
+      #dot {
+        border: none;
+        background-color: aliceblue;
+        position: relative;
+        top: 8px;
+        font-size: 20px;
+      }
+      #leftnav {
+        display: inline-block;
+        position: relative;
+        left: 180px;
+      }
+      #leftnav ul {
+        color: black;
+        position: relative;
+        bottom: 10px;
+        text-align: center;
+        padding: 16px;
+        font-size: 18px;
+        display: inline-block;
+      }
+      #sign {
+        color: white;
+        position: relative;
+        bottom: 10px;
+        text-align: center;
+        padding: 10px 20px;
+        font-size: 18px;
+        display: inline-block;
+        border-radius: 10px;
+        background-color: #04aa6d;
+        border: 1px solid #04aa6d;
+      }
+      #container {
+        display: flex;
+      }
+
+      #sidenav {
+        width: 250px;
+        background-color: #ebedee;
+        border: 1px solid #ebedee;
+      }
+
+      #body {
+        flex: 1; /* takes remaining space */
+        padding: 20px;
+      }
+
+      #sidenav ul {
+        margin: 10px;
+        padding: 3px 3px 3px 20px;
+        font-size: 15px;
+        border-left: 1px solid #861a1a;
+      }
+      #sidenav ul:hover {
+        border-left: 1px solid #04aa6d;
+        background-color: #d5d9dd;
+      }
+      #body {
+        display: inline-block;
+      }
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-family: Arial, sans-serif;
+        border: 1px solid #000;
+        border-radius: 6px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: 0.3s ease;
+      }
+
+      #home {
+        background-color: #fff;
+        color: #000;
+      }
+      #home:hover {
+        background-color: #f0f0f0;
+      }
+
+      #next {
+        background-color: #04aa6d;
+        color: #fff;
+        border: 1px solid #04aa6d;
+        float: right;
+      }
+      #next:hover {
+        background-color: #038a58;
+      }
+
+      #htmlbanner {
+        display: flex;
+        justify-content: space-between;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 30px;
+      }
+
+      .bannerleft,
+      .bannerright {
+        width: 48%;
+      }
+
+      .htmllogo {
+        width: 60px;
+        vertical-align: middle;
+      }
+
+      .bannerleft h2,
+      .bannerright h2 {
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .bannerleft p,
+      .bannerright p {
+        color: #555;
+        line-height: 1.6;
+      }
+
+      .learnbtn {
+        background-color: #04aa6d;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      .learnbtn:hover {
+        background-color: #038a58;
+      }
+
+      .certbtn {
+        background-color:white;
+        color:black;
+        border: 2px solid black;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      .certbtn:hover {
+        background-color: #333;
+        color: white;
+      }
+
+      .certificate {
+        width: 100%;
+        max-width: 300px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+      }
+
+      .navbuttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+      }
+
+      .homebtn,
+      .nextbtn {
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      .homebtn {
+        background-color: #fff;
+        border: 1px solid #000;
+        color: #000;
+      }
+
+      .homebtn:hover {
+        background-color: #f0f0f0;
+      }
+
+      .nextbtn {
+        background-color: #04aa6d;
+        border: 1px solid #04aa6d;
+        color: #fff;
+      }
+
+      .nextbtn:hover {
+        background-color: #038a58;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="nav">
+      <img src="images.png" alt="logo" id="img" />
+      <ul>
+        Tutorials
+      </ul>
+      <ul>
+        References
+      </ul>
+      <ul>
+        Exercises
+      </ul>
+      <ul>
+        Certificates
+      </ul>
+
+      <!-- /* serch div */ -->
+      <div id="search">
+        <input type="search" placeholder="   search..." />
+        <button id="dot">
+          <span class="material-symbols-outlined">more_vert</span>
+        </button>
+      </div>
+
+      <!-- /* left nav div */ -->
+      <div id="leftnav">
+        <ul>
+          Practise
+        </ul>
+        <ul>
+          Space
+        </ul>
+        <ul>
+          Academ
+        </ul>
+        <ul>
+          Upgrade
+        </ul>
+        <ul>
+          Get certificate
+        </ul>
+        <button id="sign">Sign in</button>
+      </div>
+    </div>
+    <div id="navbar">
+      <li>
+        <ul>
+          HTML
+        </ul>
+        <ul>
+          CSS
+        </ul>
+        <ul>
+          BOOTSTREP
+        </ul>
+        <ul>
+          JAVA SCRIPT
+        </ul>
+        <ul>
+          SQL
+        </ul>
+        <ul>
+          PYTHON
+        </ul>
+        <ul>
+          JAVA
+        </ul>
+        <ul>
+          PHP
+        </ul>
+        <ul>
+          C
+        </ul>
+        <ul>
+          DJENG0
+        </ul>
+        <ul>
+          C++
+        </ul>
+        <ul>
+          HOW TO
+        </ul>
+        <ul>
+          REACT
+        </ul>
+        <ul>
+          MYSQL
+        </ul>
+        <ul>
+          JQUERY
+        </ul>
+        <ul>
+          EXEL
+        </ul>
+        <ul>
+          XML
+        </ul>
+        <ul>
+          NUMPY
+        </ul>
+        <ul>
+          PANDAS
+        </ul>
+        <ul>
+          NODEJS
+        </ul>
+        <ul>
+          ENGULER
+        </ul>
+      </li>
+    </div>
+
+    <div id="container">
+      <div id="sidenav">
+        <li>
+          <ul>
+            HTML
+          </ul>
+          <ul>
+            CSS
+          </ul>
+          <ul>
+            BOOTSTREP
+          </ul>
+          <ul>
+            JAVA SCRIPT
+          </ul>
+          <ul>
+            SQL
+          </ul>
+          <ul>
+            PYTHON
+          </ul>
+          <ul>
+            JAVA
+          </ul>
+          <ul>
+            PHP
+          </ul>
+          <ul>
+            C
+          </ul>
+          <ul>
+            DJENG0
+          </ul>
+          <ul>
+            C++
+          </ul>
+          <ul>
+            HOW TO
+          </ul>
+          <ul>
+            REACT
+          </ul>
+          <ul>
+            MYSQL
+          </ul>
+          <ul>
+            JQUERY
+          </ul>
+          <ul>
+            EXEL
+          </ul>
+          <ul>
+            XML
+          </ul>
+          <ul>
+            NUMPY
+          </ul>
+        </li>
+      </div>
+
+      <div id="body">
+        <h1>HTML Tutorials</h1>
+
+        <button id="home" class="button">< HOME</button>
+        <button id="next" class="button">NEXT ></button>
+
+        <div id="htmlbanner">
+          <div class="bannerleft">
+            <img src="HTML5_logo_and_wordmark.svg.webp" alt="HTML5 Logo" class="htmllogo" />
+            <h2>Learn HTML</h2>
+            <p>
+              HTML is the standard markup language for Web pages.<br />
+              With HTML you can create your own Website.<br />
+              HTML is easy to learn - You will enjoy it!
+            </p>
+            <button class="learnbtn">Learn HTML now ➔</button>
+          </div>
+
+          <div class="bannerright">
+            <h2>Become HTML Certified</h2>
+            <p>
+              Get certified with our HTML exam, includes a professionally
+              curated study kit to guide you from beginner to exam ready.
+            </p>
+            
+            <button class="certbtn">Get Certified ➔</button>
+          </div>
+        </div>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
