@@ -1101,6 +1101,7 @@ db.student.deleteMany({fees:37000}) // delete multiple documents where fees is e
 
       example:db.staff.updateOne({course:"bca"},{$max:{experiemce:10}})
 
+
   --------------
   update many
   --------------
@@ -1158,9 +1159,38 @@ syntax: db.collection.replaceOne({filter}, {newDocument}, {option})
 
 db.staff.replaceOne({sno: 115},{ sno: 116,sname: "mohit",course: "bca" ,experience: 8})
 
+---------------------
+   options (upsert)
+---------------------
 
----------------------------------------------------
----------------------------------------------------
+db.staff.updateOne({sname:"mohann"},{$set:{age:30}},{upsert:true})
+
+------------------------
+nested update in MongoDB
+------------------------
+db.books.updateOne({"author.callname":"Rama"},{$set:{"author.profile.exp":10}})
+
+==========================
+ evaluation query oprater
+==========================
+
+$expr ,$regx ,$mod ,$where ,jsonSchema ,$text
+
+1.$expr
+
+db.createCollection("budget")
+
+db.budget.insertOne({cat:"food",budget:1000,spent:1200})
+db.budget.insertOne({cat:"grocery",budget:5000,spent:7000})
+db.budget.insertOne({cat:"travel",budget:10000,spent:8000})
+db.budget.insertOne({cat:"ent",budget:1200,spent:1200})
+db.budget.insertOne({cat:"clothes",budget:1000,spent:1500})
+db.budget.insertOne({cat:"rent",budget:0})
+
+db.budget.find({$expr:{$gte:["$budget","$spent"]}}) // find all documents where budget is greater than or equal to spent
+db.budget.find({$expr:{$lte:["$budget","$spent"]}}) // find all documents where budget is greater than or equal to spent
+
+
 
 
 
