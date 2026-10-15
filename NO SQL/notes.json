@@ -11,7 +11,7 @@ primary key    default key (_id) is provided by MongoDB
 ----------------------------------------------------------------
 
 ==============================================
-create databes and execute queries in MongoDB
+create databes and execute queries in MongoDB 
 ==============================================
 
 db.createCollection("student")  // create a collection
@@ -1174,9 +1174,11 @@ db.books.updateOne({"author.callname":"Rama"},{$set:{"author.profile.exp":10}})
  evaluation query oprater
 ==========================
 
-$expr ,$regx ,$mod ,$where ,jsonSchema ,$text
+$expr ,$mod (,$regx ,$where ,jsonSchema ,$text) only two now rest of in java 
 
 1.$expr
+
+syntax: db.collection.find({$expr:{<operator>: [<expression1>, <expression2>]}})
 
 db.createCollection("budget")
 
@@ -1186,11 +1188,30 @@ db.budget.insertOne({cat:"travel",budget:10000,spent:8000})
 db.budget.insertOne({cat:"ent",budget:1200,spent:1200})
 db.budget.insertOne({cat:"clothes",budget:1000,spent:1500})
 db.budget.insertOne({cat:"rent",budget:0})
+db.budget.insertOne({cat:"rent",budget:0,spent:31})
 
 db.budget.find({$expr:{$gte:["$budget","$spent"]}}) // find all documents where budget is greater than or equal to spent
 db.budget.find({$expr:{$lte:["$budget","$spent"]}}) // find all documents where budget is greater than or equal to spent
 
+2.$mod
+
+syntax: db.collection.find({field:{$mode:[divisor,remainder]}})
+
+db.budget.find({spent:{$mod:[1500,0]}}) // find all documents where spent is divisible by 1500 and remainder is 0
 
 
+========================
+ projection in MongoDB
+========================
+definition: use for print specific fild from document with filter
+
+tha fild u want to print write 1 by defult tha fild is false  you have to wire 1 for print.
+
+
+db.collection.find({filter}(*optional),{projection})
+
+db.books.find({},{no_of_reviews:1}) // find all documents in the collection and project only title and no_of_reviews fields
+
+db.books.find({no_of_reviews:{$gte:5}},{no_of_reviews:1}) // find all documents in the collection and project only title and no_of_reviews fields
 
 

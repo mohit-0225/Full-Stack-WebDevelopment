@@ -1,0 +1,21 @@
+ use prectice 
+
+ db.createCollection("student")
+
+ db.student.insertOne({roll:1,name:"mohit"})
+
+ db.student.insertMany([
+    {roll:1,name:"mohit",age:20},
+    {roll:2,name:"ashavi",age:20},
+    {roll:3,name:"mihir",age:22},
+    {roll:4,name:"rohan",age:21},
+    {roll:5,name:"charvi",age:19},
+    {roll:6,name:"poonam",age:20}
+ ])
+
+ db.student.find({age:{$eq:20}}) // find all student whose age is 20
+ db.student.find({age:{$gte:20}}) // find all student whose age is greater than or equal to 20
+ db.student.find({age:{$lte:20}}) // find all student whose age is less than or equal to 20
+ db.student.find({age:{$lt:20}}) // find all student whose age is less than 20
+ db.student.find({age:{$gt:20}}) // find all student whose age is greater than 20
+ 
