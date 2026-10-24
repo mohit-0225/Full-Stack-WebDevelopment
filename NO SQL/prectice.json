@@ -19,3 +19,27 @@
  db.student.find({age:{$lt:20}}) // find all student whose age is less than 20
  db.student.find({age:{$gt:20}}) // find all student whose age is greater than 20
  
+db.createCollection("staff")
+
+
+db.staff.insertOne(
+{
+   name:"mohit",
+   age:20,
+   address:{
+      city:"ahmedabad",
+      state:"gujarat"
+   },
+   languages:["java","python","javascript"]
+})
+
+db.staff.insertOne(
+{
+   name:"ashavi",
+   age:20,
+   address:{
+      city:"surat",
+      state:"gujarat"
+   },
+   languages:["java","python","javascript"]
+})

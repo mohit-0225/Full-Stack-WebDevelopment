@@ -1215,3 +1215,57 @@ db.books.find({},{no_of_reviews:1}) // find all documents in the collection and 
 db.books.find({no_of_reviews:{$gte:5}},{no_of_reviews:1}) // find all documents in the collection and project only title and no_of_reviews fields
 
 
+projection in array
+----------------------
+
+db.student.insertOne({_id:11,name:"Rahil",sem:1,marks:[50,40,50,10]});
+db.student.insertOne({_id:12,name:"Aakash",sem:1,marks:[90,40,80,10]});
+db.student.insertOne({_id:13,name:"Dhyana",sem:1,marks:[10,50,60,50]});
+db.student.insertOne({_id:14,name:"kenny",sem:1,marks:[80,80,40,90]});
+db.student.insertOne({_id:15,name:"Abir",sem:1,marks:[10,50,90,25]});
+db.student.insertOne({_id:16,name:"Mahir",sem:1,marks:[88,70,10,60]});
+db.student.insertOne({_id:17,name:"Tej",sem:1,marks:[60,40,20,10]});
+
+
+db.student.find({marks:{$gte:80}},{_id:0,marks:1})
+
+db.student.find({marks:{$gte:90}},{_id:0,name:1,marks:1})
+
+
+db.student.find({marks:{$gte:90}},{_id:0,name:1,"marks.$":1}) // projects the first element in the marks array that satisfies the condition
+
+
+----------------------
+slice array in MongoDB
+----------------------
+
+note this element is use only for array projection in MongoDB
+
+synax
+db.collection.find({filter},{<array>:{slice:<number>}}) // for first n element in the array
+
+ positive number->
+          from first element to n element in the array
+  negative number->
+          from last element to n element in the array
+    if n is lessthen the array length then it will return all elements in the array
+
+db.collection.find({filter},{<array>:{slice:[n1,n2]}})
+
+n1-  the index number to be skip 
+n2 - tha inderx number to be return 
+          
+
+
+db.student.find({},{_id:0,name:1,marks:{$slice:2}}) // slice array in two part first two element will be displayed
+
+db.student.find({},{_id:0,name:1,marks:{$slice:[1,2]}}) // slice array in two part first two element will be displayed from index 1
+
+db.student.find({},{_id:0,name:1,marks:{$slice:-1}}) // slice array in two part last element will be displayed
+
+
+-----------------------
+element match in MongoDB
+-----------------------
+
+db.student.find({},{marks:{$elemMatch:{$gte:80}}}) // find all documents in the collection and project only marks fields where marks is greater than or equal to 80
