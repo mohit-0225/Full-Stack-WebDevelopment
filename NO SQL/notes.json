@@ -1269,3 +1269,54 @@ element match in MongoDB
 -----------------------
 
 db.student.find({},{marks:{$elemMatch:{$gte:80}}}) // find all documents in the collection and project only marks fields where marks is greater than or equal to 80
+
+db.collection.find({<conditon>},{"<array filds>":}{$elemMatch:{<fild>:<condition>}})
+
+db.inventory.find({},{qty:{$elemMatch:{num:{"$gte":10}}},code:1,tags:1})
+
+db.inventory.find({},{qty:{$elemMatch:{color:'green'}}})
+
+db.inventory.find({"tags":"book"},{qty:{$elemMatch:{num:{"$gte":10}}},code:1,tags:1})
+
+==============
+  aggregate
+==============
+
+db.books.aggregate([{$count:"totalBooks"}])
+
+db.books.aggregate([{$match:{downloadable:true}},{$project:{ _id:0,title:1,downlodable:1}}])
+
+db.books.aggregate([
+            {$group:{_id : null,avragereview:{$avg:"$no_of_reviews"}}},
+            {$project:{_id :0 , tital:1 , avragereview:1}}
+
+])
+
+db.books.aggregate([
+            {$sort:{no_of_review:-1}},
+            {$limit:1},
+            {$project:{_id:0 ,title:1,no_of_review:1}}
+])
+
+db.books.aggregate([
+            {$group:{_id:null,minimumreviews:{$min:"$no_of_reviews"},maximumreviews:{$max:"$no_of_reviews"}}},
+            
+])
+
+db.books.aggregate([
+          {
+            $match:{
+              "author.profile.exp":{
+                $gte:5
+              }
+            }
+          },
+          {
+            $project:{
+              _id:0,
+              title:1,
+              authorName:"$author.name",
+              experience:"$author.profile.exp"
+            }
+          }
+])
