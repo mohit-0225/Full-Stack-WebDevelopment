@@ -41,7 +41,26 @@
 // console.log('true'*10) |- NaN Not a number
 // console.log('true'/10) |
 
-console.log(typeof(NaN)) // number
+// console.log(typeof(NaN)) // number
 
-console.log('2500'/'5')
-console.log('2500'/'ten') // NaN Not a number
+// console.log('2500'/'5')
+// console.log('2500'/'ten') // NaN Not a number
+// ===========================================================
+
+// variable - is an identifier which is used to store the data in memory.
+
+// -- all veriable is an identifear 
+// -- but not all identifear is a variable
+
+
+// =====================
+//  veriable declaration
+// =====================
+
+// three ways to declare veriable in java script
+//  ver,let,const
+
+// var a = 10
+// var b = 20
+// var c = a+b
+// console.log(c)
