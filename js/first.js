@@ -302,3 +302,12 @@
 
 // console.log(arr1)
 // console.log(arr1.length)
+
+// ----------
+// 24-11-2026 IMP
+// ----------
+
+// veard part of array 
+// ------------------------
+//    
+
