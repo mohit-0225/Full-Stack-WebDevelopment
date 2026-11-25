@@ -8,14 +8,11 @@
 //  console.log(0.1+0.3)
 //  console.log(10%3)
 
-
-
 // console.log(typeof(1))
 // console.log(typeof('1'))
 // console.log(typeof(true))
 // console.log(true)
 // console.log(typeof('true'))
-
 
 // console.log(true + '0.5')
 // console.log(true +0.5)
@@ -26,11 +23,10 @@
 // console.log('10'*10)
 // console.log('10'/10)
 
-//   if string value is numeric and use with erithmatic optater then 
+//   if string value is numeric and use with erithmatic optater then
 // it exicute tha arithmatic opraton accept + bcz if we use + in concate tha string
 
 // java script automatically conver tha '10' in to number when use -,*,/ in to.
-
 
 // console.log(typeof('10'))
 // console.log(typeof('true'))
@@ -49,9 +45,8 @@
 
 // variable - is an identifier which is used to store the data in memory.
 
-// -- all veriable is an identifear 
+// -- all veriable is an identifear
 // -- but not all identifear is a variable
-
 
 // =====================
 //  veriable declaration
@@ -63,7 +58,7 @@
 
 // variable  - is an identifier that can store information
 // -- variable is identifier
-//  identifier is not variable 
+//  identifier is not variable
 
 // int a;
 // int a = 10 ;
@@ -74,7 +69,6 @@
 // var y =10;
 // var z =20;
 
-
 // console.log(y+z);
 // x=y+z;
 // console.log(x);
@@ -82,16 +76,15 @@
 
 // console.log(y+z);
 
-// String in JS 
+// String in JS
 
-// using  singlequote '' 
+// using  singlequote ''
 // using  doublequote ""
-// using  backtick `` -> use in paragraph - Template literal 
-
+// using  backtick `` -> use in paragraph - Template literal
 
 // var str1 = "hello, we `are learning` JS,                  'JS is an amzing language' for development."
-// var str2 = `hello, we are "learning" JS, 
-// 'JS is an amzing language' 
+// var str2 = `hello, we are "learning" JS,
+// 'JS is an amzing language'
 // for development.`
 // console.log(str1)
 // console.log(str2)
@@ -102,7 +95,7 @@
 
 // var x;
 // console.log(x) //undefined
- 
+
 // ----------- Data Type -----------
 
 // console.log(typeof "Hello")          // String
@@ -118,7 +111,6 @@
 // console.log(typeof 100373289478957437528534752938724)                  //number
 // console.log(typeof 100373289478957437528534752938724n)                  //bigint
 
-
 // 'var' , 'let', 'const
 
 // var x=10;
@@ -127,7 +119,7 @@
 //     console.log(x)
 // }
 // console.log(x)
-// 
+//
 // let x=10;
 // {
 //     let x=20;
@@ -154,7 +146,7 @@
 // x=10
 
 // console.log(x)
-// let  x; 
+// let  x;
 // x=10 // Cannot access 'x' before initialization
 
 // ------------------
@@ -166,16 +158,16 @@
 // console.log(X_CONST)
 
 // ------------------------
-// null, NaN, undefined 
+// null, NaN, undefined
 
 // let x = 10;
 // let y = '10';
 // console.log(x==y)
 // console.log(x===y)
 
-// console.log(typeof undefined) // 
-// console.log(typeof null)      // empty 
-// console.log(typeof NaN)       // 
+// console.log(typeof undefined) //
+// console.log(typeof null)      // empty
+// console.log(typeof NaN)       //
 
 // console.log(undefined ==undefined) //t
 // console.log(undefined ===undefined) //t
@@ -184,7 +176,7 @@
 // console.log(undefined === null) //f
 
 // console.log(undefined ==  NaN)   //f
-// console.log(undefined === NaN)   //f 
+// console.log(undefined === NaN)   //f
 
 // console.log(null == null)   //t
 // console.log(null === null)  //t
@@ -195,16 +187,14 @@
 // console.log(NaN == NaN)     //f
 // console.log(NaN  === NaN)   //f
 
-
 // ----------
 // 23-11-2026
 // ----------
 
 // Array - The Array object, as with arrays in other programming languages, enables storing a collection of multiple items under a single variable name.
 
-// [] 
+// []
 // index start from 0
-
 
 // let arr  = [];
 
@@ -226,8 +216,8 @@
 // console.log(arr1.length)
 
 // console.log(arr1[9])
-// arr1[9] = 100 
-// arr1[90] = 1000 
+// arr1[9] = 100
+// arr1[90] = 1000
 
 // arr1[7] = undefined;
 // console.log(arr1)
@@ -242,7 +232,7 @@
 // console.log(arr1)
 // console.log(arr1.length)
 
-// 
+//
 // let arr1 = [];
 
 // for(let i=0;i<10;i++)
@@ -260,7 +250,6 @@
 // insert ->    push()  insert - Rear     unshift() insert - Front
 
 // delete ->    pop()       shift()
-
 
 // let arr1  = [30,40,50,60,70];
 
@@ -292,7 +281,6 @@
 // delete - property
 // -------
 
-
 // let arr1  = [30,40,50,60,70];
 // console.log(arr1)
 // console.log(arr1.length)
@@ -307,7 +295,8 @@
 // 24-11-2026 IMP
 // ----------
 
-// veard part of array 
+// veard part of array
 // ------------------------
-//    
+//
+
 
