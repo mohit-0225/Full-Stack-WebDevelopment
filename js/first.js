@@ -405,4 +405,71 @@
 
 
 
+//  from mdn self study
 
+// at()
+// concat()
+// copyWithin()
+// fill()
+// find()
+// findIndex()
+// findLastIndex()
+// flat()
+// includes()
+// indexOf()
+// reverse()
+
+// ---------------------------------------------
+
+// ---------------
+//   function
+// ---------------
+
+
+// function  mens busness Logic
+
+// from ES 13 there are following type of function in js
+
+// 1. named function
+// 2. anonymous function
+// 3. rest parameter  in function
+// 4. default parameter in function
+// 5. optional parameter in function
+// ----- advanced function------------
+// 6. generators function
+// 7.constructor function
+// IIFE - (Immediately Invoked Function Expression)
+
+
+// ---------------
+// named function
+// ---------------
+
+//  function with tha particuler name called as named function
+//  there two things in function - 1. function definition  2. function calling
+
+// function functionName(parameter1, parameter2, parameter3) 
+//   {
+//     // bussness logic
+      //  return value
+//   }
+// 
+
+// ---------- function calling ---------------
+
+// functionName(argument1, argument2, argument3...N);
+
+//exmpl
+
+// function myfunc()// function definition
+// {
+//     console.log("Hello, I am named function")
+// }
+// myfunc() //function calling
+
+
+// simpal intrust
+// pelindrome
+// total  of 1 to 10 
+// string reverse
+// armstrong number
