@@ -467,9 +467,35 @@
 // }
 // myfunc() //function calling
 
+// -------------------------------------------------------------------
+// example of simpal intrust using named function
 
-// simpal intrust
-// pelindrome
-// total  of 1 to 10 
+// function intrust()
+// {
+//       let p = 1000;
+//       let r = 5;
+//       let n = 2;
+//       let intrust ;
+//       intrust = p * r * n / 100;
+//      return intrust;
+// }
+// console.log(` Simpal Intrust = ${intrust()}`)
+
+// ---------------------------------------------------------------
+
+// example of total of 1 to 10  using named function
+
+// function total()
+// {
+//       let sum = 0;
+//       for(let i = 1; i <= 10; i++)
+//       {
+//             sum += i;
+//       }
+//       return sum;
+// }
+// console.log(`Total of 1 to 10 = ${total()}`)
+
+//  chek pelindrome number using named function
 // string reverse
 // armstrong number
