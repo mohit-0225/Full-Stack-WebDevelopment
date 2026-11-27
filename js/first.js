@@ -499,3 +499,66 @@
 //  chek pelindrome number using named function
 // string reverse
 // armstrong number
+
+// let a= 100;
+// let b = 200;
+// function dosum(a,b)
+// {
+//       // console.log(a+b)
+//       return a+b;
+// }
+// console.log(dosum(10,20))
+
+// -------------------------------------
+
+// function funcOne(arg,arg2,arg3)
+// {
+//       console.log(`${arg} -  ${arg2} - ${arg3}`)
+  
+// }
+// funcOne("react", "node js", "vue")
+// funcOne("react", "node js")
+// funcOne()
+// funcOne("null")
+
+// ============= second method of function declaration in js ==============
+
+// let funcTwo = function()
+// {
+//       console.log(`function  two called....`)
+//       return "hello-2";
+// }
+// funcTwo()
+
+
+// -----------------------------------------------
+
+
+// let funcTwo = function()
+// {
+//       console.log(`function  two called....`)
+//       return "hello-2";
+// }
+// let funcOne = function(xyz)
+// {
+//       // console.log(xyz)
+//       console.log(`function  one called....`)
+//       return xyz;
+// }
+// console.log(funcOne(funcTwo)) 
+// console.log(funcOne(funcTwo)()) 
+// console.log(funcOne(funcTwo())) 
+
+// function dosquare(x)
+// {
+//       return x * x;
+// }
+// function doCube(y)
+// {
+//       return y * y * y;
+// }
+// function doSum(a,b)
+// {
+//       return a + b;
+// }     
+// console.log(doSum(dosquare(10), doCube(5)))
